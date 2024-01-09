@@ -1,0 +1,43 @@
+/* Hex Colors 
+    Purple: #59194F
+    Orange: #F2913D
+    White: #F2F2F2
+    Green: #9EA68D
+*/
+
+/* Styling for Header Component*/
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    background-color: #59194F;
+    font-size: 20px;
+}
+
+.header a {
+    color: #F2F2F2;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #F2913D;
+    transform: scale(1.2)
+}
+
+.llamaLogo {
+    width: 50px;
+}
+
+/* Styling for Footer Component */
+.Footer {
+    background-color: #59194F;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Styling for Body */
+.Body {
+    background-color: #9EA68D;
+}

@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+       <h6 className='Footer'>&copy; {new Date().getFullYear()} Enrique, Greg, Patsy, Sean </h6>
+    </>
   )
 }
 
