@@ -9,13 +9,13 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   return (
     <>
-      <div className='header'>
-        <img className='llamaLogo' src={llamaLogo} />
+      <header role="navigation" aria-label="navigation">
+        <img className='llamaLogo' src={llamaLogo} alt="llama logo"/>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/aboutus">About Us</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
-      </div>
+      </header>
     </>
   )
 }

@@ -14,5 +14,12 @@ describe("<Footer/>", () => {
   
     it("It contains a footer element", () => {
       footer();
+      screen.logTestingPlaygroundURL()
     });
+
+    it("Has a copyright", () => {
+        footer();
+        const footerText = screen.getByRole('heading', { name: /© 2024 enrique, greg, patsy, sean/i })
+        expect(footerText).toBeInTheDocument()
+    })
 })

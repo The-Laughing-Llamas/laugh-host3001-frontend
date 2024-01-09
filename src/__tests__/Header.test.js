@@ -15,6 +15,7 @@ describe("<Header/>", () => {
 
   it("It contains a header element", () => {
     header();
+    screen.logTestingPlaygroundURL()
   });
 
   it("Has a navigation element", () => {
@@ -26,6 +27,7 @@ describe("<Header/>", () => {
   });
 
   it("has an image", () => {
+    header();
     const image = screen.getByRole("img")
     expect(image).toHaveAttribute("src", llamaLogo)
   });
@@ -67,6 +69,6 @@ describe("<Header/>", () => {
       name: "Login",
     });
     expect(link).toBeInTheDocument();
-    expect(link.getAttribute("href")).toBe("/signin");
+    expect(link.getAttribute("href")).toBe("/login");
   });
 });
