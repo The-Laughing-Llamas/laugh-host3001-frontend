@@ -14,7 +14,6 @@ describe("<Footer/>", () => {
   
     it("It contains a footer element", () => {
       footer();
-      screen.logTestingPlaygroundURL()
     });
 
     it("Has a copyright", () => {

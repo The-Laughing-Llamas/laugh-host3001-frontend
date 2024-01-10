@@ -41,3 +41,14 @@ header a:hover {
 .Body {
     background-color: #9EA68D;
 }
+
+/* styling for home */
+.Home {
+    height:90vh;
+    background: url(https://i.imgur.com/CbtNqxn.png) no-repeat center center/cover;
+}
+
+.NotFound {
+    height: 90vh;
+    background: url(https://i.imgur.com/mXKqMpg.png) no-repeat center center/ cover;
+}

@@ -15,7 +15,6 @@ describe("<Header/>", () => {
 
   it("It contains a header element", () => {
     header();
-    screen.logTestingPlaygroundURL()
   });
 
   it("Has a navigation element", () => {
