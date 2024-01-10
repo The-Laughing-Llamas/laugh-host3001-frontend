@@ -4,7 +4,7 @@ let mockRecipes = [
         title: "Soggy Breakfast",
         ingredients: "wet toast, runny eggs, non-crispy bacon",
         instructions: "barely cook the ingredients, place on a plate",
-        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.willowhardman.com%2Fbad-breakfast-sequential-triptych&psig=AOvVaw3DcYZSjYVz7p5rU4EoLU4Z&ust=1704909528675000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJjdupHx0IMDFQAAAAAdAAAAABAD",
+        image: "https://express-images.franklymedia.com/6616/sites/1466/2020/10/26085325/Egg2-300x225.jpg",
         user_id: 1
     },
     {
