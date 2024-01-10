@@ -13,13 +13,14 @@ import RecipeNew from './pages/RecipeNew'
 import RecipeEdit from './pages/RecipeEdit'
 import NotFound from './pages/NotFound'
 import mockRecipes from './mockRecipes'
+import mockUsers from './mockUsers';
 
 const App = () => {
   const [recipes, setRecipes] = useState(mockRecipes)
-
+  const [currentUser, setCurrentUser] = useState(null)
   return (
     <>
-      <Header />
+      <Header currentUser = {currentUser}/>
       <div className="Body">
         <Routes>
           <Route exact path="/" element={<Home />} />
