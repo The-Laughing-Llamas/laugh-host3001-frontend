@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFound = () => {
   return (
-    <div className='NotFound'></div>
+    <div className='NotFound' data-testid="NotFoundDiv"></div>
   )
 }
 
