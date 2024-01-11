@@ -17,7 +17,7 @@ import mockUsers from './mockUsers';
 
 const App = () => {
   const [recipes, setRecipes] = useState(mockRecipes)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(mockUsers)
   return (
     <>
       <Header currentUser = {currentUser}/>
