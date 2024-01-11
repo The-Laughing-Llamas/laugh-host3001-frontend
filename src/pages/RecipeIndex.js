@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Card, CardBody, CardTitle, Button } from "reactstrap"
+import { Card, CardBody, CardTitle } from "reactstrap"
 
 
   const RecipeIndex = ({ recipes }) => {
@@ -30,7 +30,9 @@ import { Card, CardBody, CardTitle, Button } from "reactstrap"
                       {recipe.title}
                     </CardTitle>
                     <button data-testid={index}>
-                    <NavLink to={`/recipeshow/${recipe.id}`}>View Recipe</NavLink>
+                    <NavLink to={`/recipeshow/${recipe.id}`} className="nav-link">
+                       View Recipe
+                    </NavLink>
                     </button>
                   </CardBody>
                 </Card>

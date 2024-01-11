@@ -41,6 +41,7 @@ header a:hover {
 /* Styling for Body */
 .Body {
     background-color: #9EA68D;
+    height:90vh;
 }
 
 /* Styling for home */
@@ -56,7 +57,7 @@ header a:hover {
 }
 
 /* Styling for Recipe Page */
-.recipeCard{
+.recipeCard {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -106,3 +107,4 @@ button:hover{
 .show-card {
     margin: auto;
 }
+
