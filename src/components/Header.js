@@ -4,10 +4,18 @@ import Home from '../pages/Home'
 import AboutUs from '../pages/AboutUs'
 import Login from '../pages/SignIn'
 import Signup from '../pages/SignUp'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 
-const Header = ({currentUser}) => {
+const Header = ({currentUser, signout}) => {
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    signout()
+    navigate("/")
+  }
+
   return (
     <>
       <header role="navigation" aria-label="navigation">
@@ -16,7 +24,7 @@ const Header = ({currentUser}) => {
         {currentUser && (
           <>
           <NavLink to="/recipeindex">My Recipes</NavLink>
-          <NavLink to="/logout">Log Out</NavLink>
+          <NavLink to="/" onClick={handleClick}>Log Out</NavLink>
           </>
         )}
         {!currentUser && (

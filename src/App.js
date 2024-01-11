@@ -17,20 +17,83 @@ import mockUsers from './mockUsers';
 
 const App = () => {
   const [recipes, setRecipes] = useState(mockRecipes)
-  const [currentUser, setCurrentUser] = useState(mockUsers)
+  const [currentUser, setCurrentUser] = useState(null)
+
+  const signin = (userInfo) => {
+    fetch("http://localhost:3000/login", {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then((payload) => {
+      localStorage.setItem("user", JSON.stringify(payload))
+      setCurrentUser(payload)
+    })
+    .catch((error) => console.log("login errors: ", error))
+  }
+
+  const signup = (userInfo) => {
+    fetch("http://localhost:3000/signup", {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then((payload) => {
+        localStorage.setItem("user", JSON.stringify(payload))
+        setCurrentUser(payload)
+      })
+      .catch((error) => console.log("login errors: ", error))
+  }
+
+  const signout = (id) => {
+    fetch("http://localhost:3000/signout", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      method: "DELETE",
+    })
+      .then((payload) => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        setCurrentUser()
+      })
+      .catch((error) => console.log("log out errors: ", error))
+  }
+
   return (
     <>
-      <Header currentUser = {currentUser}/>
+      <Header currentUser = {currentUser} signout={signout}/>
       <div className="Body">
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/aboutus" element={<AboutUs />} />
-          <Route exact path="/login" element={<SignIn />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} />} />
+          <Route exact path="/login" element={<SignIn signin={signin}/>} />
+          <Route exact path="/signup" element={<SignUp signup={signup}/>} />
+          {currentUser && (<Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} />)}
           <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} />} />
-          <Route exact path="/recipenew" element={<RecipeNew />} />
-          <Route exact path="/recipeedit/:id" element={<RecipeEdit />} />
+          <Route exact path="/recipenew" element={<RecipeNew currentUser={currentUser} />} />
+          <Route exact path="/recipeedit/:id" element={<RecipeEdit recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
       </div>
