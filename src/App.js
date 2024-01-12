@@ -16,8 +16,12 @@ import mockRecipes from './mockRecipes'
 import mockUsers from './mockUsers';
 
 const App = () => {
-  const [recipes, setRecipes] = useState(mockRecipes)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [recipes, setRecipes] = useState([])
+  const [currentUser, setCurrentUser] = useState(mockUsers)
+
+  const createRecipe = (newRecipe) => {
+    setRecipes((curr)=> [...curr, newRecipe])
+  };
 
   const signin = (userInfo) => {
     fetch("http://localhost:3000/login", {
@@ -92,7 +96,7 @@ const App = () => {
           <Route exact path="/signup" element={<SignUp signup={signup}/>} />
           {currentUser && (<Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} />)}
           <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} />} />
-          <Route exact path="/recipenew" element={<RecipeNew currentUser={currentUser} />} />
+          <Route exact path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
           <Route exact path="/recipeedit/:id" element={<RecipeEdit recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
