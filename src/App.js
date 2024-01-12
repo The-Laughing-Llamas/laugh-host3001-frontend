@@ -19,8 +19,11 @@ const App = () => {
   const [recipes, setRecipes] = useState(mockRecipes)
   const [currentUser, setCurrentUser] = useState(null)
 
+// const url = "http://localhost:3000"
+const url = "https://laughhost3000.onrender.com"
+
   const signin = (userInfo) => {
-    fetch("http://localhost:3000/login", {
+    fetch(`${url}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +46,7 @@ const App = () => {
   }
 
   const signup = (userInfo) => {
-    fetch("http://localhost:3000/signup", {
+    fetch(`${url}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +69,7 @@ const App = () => {
   }
 
   const signout = (id) => {
-    fetch("http://localhost:3000/signout", {
+    fetch(`${url}/signout`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
