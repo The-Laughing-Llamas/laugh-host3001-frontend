@@ -19,9 +19,9 @@ const App = () => {
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
 
-  // const url = "http://localhost:3000"
-  const url = "https://laughhost3000.onrender.com"
 
+// const url = "http://localhost:3000"
+const url = "https://laughhost3000.onrender.com"
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
@@ -69,7 +69,9 @@ const App = () => {
       .catch((error) => console.log("login errors: ", error))
   }
 
+
   const signout = () => {
+
     fetch(`${url}/signout`, {
       headers: {
         "Content-Type": "application/json",
