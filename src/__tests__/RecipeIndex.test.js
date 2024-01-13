@@ -40,4 +40,14 @@ describe("<RecipeIndex />", () => {
       expect(title).toBeInTheDocument
     })
   })
+  it("renders a button labelled 'Add New Recipe'", () => {
+    expect(screen.getByRole('button', {
+      name: /add new recipe/i
+    }))
+  })
+  it("redirects you to a link", () => {
+    expect(screen.getByRole('link', {
+      name: /add new recipe/i
+    }))
+  })
 })

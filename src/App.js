@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import {  Routes, Route } from "react-router-dom"
 import Header from './components/Header'
@@ -16,8 +16,9 @@ import mockRecipes from './mockRecipes'
 import mockUsers from './mockUsers';
 
 const App = () => {
-  const [recipes, setRecipes] = useState(mockRecipes)
+  const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+
 
 // const url = "http://localhost:3000"
 const url = "https://laughhost3000.onrender.com"
@@ -68,7 +69,9 @@ const url = "https://laughhost3000.onrender.com"
       .catch((error) => console.log("login errors: ", error))
   }
 
-  const signout = (id) => {
+
+  const signout = () => {
+
     fetch(`${url}/signout`, {
       headers: {
         "Content-Type": "application/json",
@@ -79,10 +82,41 @@ const url = "https://laughhost3000.onrender.com"
       .then((payload) => {
         localStorage.removeItem("token")
         localStorage.removeItem("user")
-        setCurrentUser()
+        setCurrentUser(null)
       })
       .catch((error) => console.log("log out errors: ", error))
   }
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user")
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser))
+    }
+    readRecipe()}, [])
+
+    const readRecipe = () => {
+      fetch(`${url}/recipes`)
+        .then((res) => res.json())
+        .then((data) => setRecipes(data))
+        .catch((err) => console.error("Read recipe errors", err));
+    };
+  
+    const createRecipe = (recipe) => {
+      fetch(`${url}/recipes`, {
+        body: JSON.stringify(recipe),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(() => readRecipe())
+      .catch((error) => {
+        console.log("Recipe create error:", error);
+      });}
+  
 
   return (
     <>
@@ -95,7 +129,7 @@ const url = "https://laughhost3000.onrender.com"
           <Route exact path="/signup" element={<SignUp signup={signup}/>} />
           {currentUser && (<Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} />)}
           <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} />} />
-          <Route exact path="/recipenew" element={<RecipeNew currentUser={currentUser} />} />
+          <Route exact path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
           <Route exact path="/recipeedit/:id" element={<RecipeEdit recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
