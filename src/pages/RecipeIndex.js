@@ -10,6 +10,11 @@ import { Card, CardBody, CardTitle } from "reactstrap"
           <div id='recipeIndexH1'>
             <h1>Recipes</h1>
           </div>
+          <button>
+                    <NavLink to={`/recipenew/`} className="nav-link">
+                       Add New Recipe
+                    </NavLink>
+                    </button>
           <div className='recipeCard' >
 
             {recipes.map((recipe, index) => {

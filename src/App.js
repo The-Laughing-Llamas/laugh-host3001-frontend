@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import {  Routes, Route } from "react-router-dom"
 import Header from './components/Header'
@@ -17,14 +17,14 @@ import mockUsers from './mockUsers';
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
-  const [currentUser, setCurrentUser] = useState(mockUsers)
+  const [currentUser, setCurrentUser] = useState(null)
 
-  const createRecipe = (newRecipe) => {
-    setRecipes((curr)=> [...curr, newRecipe])
-  };
+  const url = "http://localhost:3000"
+  // const url = "https://laughhost3000.onrender.com"
+
 
   const signin = (userInfo) => {
-    fetch("http://localhost:3000/login", {
+    fetch(`${url}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const App = () => {
   }
 
   const signup = (userInfo) => {
-    fetch("http://localhost:3000/signup", {
+    fetch(`${url}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -69,8 +69,8 @@ const App = () => {
       .catch((error) => console.log("login errors: ", error))
   }
 
-  const signout = (id) => {
-    fetch("http://localhost:3000/signout", {
+  const signout = () => {
+    fetch(`${url}/signout`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
@@ -80,10 +80,41 @@ const App = () => {
       .then((payload) => {
         localStorage.removeItem("token")
         localStorage.removeItem("user")
-        setCurrentUser()
+        setCurrentUser(null)
       })
       .catch((error) => console.log("log out errors: ", error))
   }
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user")
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser))
+    }
+    readRecipe()}, [])
+
+    const readRecipe = () => {
+      fetch(`${url}/recipes`)
+        .then((res) => res.json())
+        .then((data) => setRecipes(data))
+        .catch((err) => console.error("Read recipe errors", err));
+    };
+  
+    const createRecipe = (recipe) => {
+      fetch(`${url}/recipes`, {
+        body: JSON.stringify(recipe),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(() => readRecipe())
+      .catch((error) => {
+        console.log("Recipe create error:", error);
+      });}
+  
 
   return (
     <>

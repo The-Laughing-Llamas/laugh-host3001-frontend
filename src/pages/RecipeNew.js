@@ -3,13 +3,14 @@ import { Form, FormGroup, Label, Input, Col, Button, Row } from "reactstrap";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
-const RecipeNew = ({ createRecipe }) => {
+const RecipeNew = ({ createRecipe, currentUser }) => {
   const navigate = useNavigate();
   const [newRecipe, setNewRecipe] = useState({
     title: "",
     ingredients: "",
     instructions: "",
     image: "",
+    user_id: currentUser.id
   });
 
   const handleChange = (e) => {
@@ -18,7 +19,7 @@ const RecipeNew = ({ createRecipe }) => {
 
   const handleSubmit = () => {
     createRecipe(newRecipe);
-    navigate("/recipeprotectedindex");
+    navigate("/recipeindex");
   };
   return (
     <>
