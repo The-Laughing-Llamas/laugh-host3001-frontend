@@ -56,6 +56,13 @@ header a:hover {
     background: url(https://i.imgur.com/mXKqMpg.png) no-repeat center center/ cover;
 }
 
+/* Styling for About Us Page */
+.AboutUs {
+    background-color: #9EA68D;
+    text-align: center;
+    
+}
+
 /* Styling for Recipe Page */
 .recipeCard {
     display: flex;

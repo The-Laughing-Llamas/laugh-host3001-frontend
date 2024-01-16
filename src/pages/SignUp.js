@@ -17,7 +17,7 @@ const SignUp = ( {signup} ) => {
       user: { email: data.email, password: data.password }
     }
     signup(userInfo)
-    navigate("/login")
+    navigate("/recipeindex")
     e.target.reset()
   }
 
