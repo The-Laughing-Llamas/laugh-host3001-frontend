@@ -20,8 +20,8 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
 
 
-//  const url = "http://localhost:3000"
-  const url = "https://laughhost3000.onrender.com"
+  const url = "http://localhost:3000"
+  // const url = "https://laughhost3000.onrender.com"
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
@@ -129,6 +129,18 @@ const App = () => {
           .then(() => readRecipe())
           .catch((errors) => console.error("Recipe update errors:", errors))
       }
+
+      const deleteRecipe = (id) => {
+        fetch(`${url}/recipes/${id}`, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "DELETE"
+        })
+          .then((response) => response.json())
+          .then(() => readRecipe())
+          .catch((errors) => console.log("delete errors:", errors))
+      }
   
 
   return (
@@ -141,7 +153,7 @@ const App = () => {
           <Route exact path="/login" element={<SignIn signin={signin}/>} />
           <Route exact path="/signup" element={<SignUp signup={signup}/>} />
           {currentUser && (<Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} />)}
-          <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} />} />
+          <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe} />} />
           <Route exact path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
           <Route exact path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
