@@ -22,7 +22,6 @@ describe("<SignUp />", () => {
         name: /Sign Up/i,
       })
     ).toBeInTheDocument();
-    screen.logTestingPlaygroundURL()
   });
 
   it("has an email and password label", () => {
