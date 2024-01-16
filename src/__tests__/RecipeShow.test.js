@@ -45,13 +45,18 @@ describe("<RecipeShow />", () => {
   });
 
   it("displays an edit button", () => {
-    expect(screen.getByRole('button', {
-      name: /edit recipe/i
-    }))
-  })
-  it("displays an edit button", () => {
-    expect(screen.getByRole('button', {
-      name: /delete recipe/i
-    }))
-  })
+    expect(
+      screen.getByRole('link', {
+        name: /edit recipe/i
+      })
+    ).toBeInTheDocument();
+  });
+
+  it("displays an delete button", () => {
+    expect(
+      screen.getByRole('link', {
+        name: /delete recipe/i
+      })
+    ).toBeInTheDocument();
+  });
 });

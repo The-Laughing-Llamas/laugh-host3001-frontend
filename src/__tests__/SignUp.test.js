@@ -49,7 +49,7 @@ describe("<SignUp />", () => {
   it("has a login button", () => {
     signup();
     expect(screen.getByRole('button', {
-        name: /signup/i
+        name: /submit/i
       })).toBeInTheDocument();
   });
 });

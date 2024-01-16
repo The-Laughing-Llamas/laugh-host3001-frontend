@@ -14,7 +14,7 @@ const SignUp = ( {signup} ) => {
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
     const userInfo = {
-      user: { email: data.email, password: data.password }
+      user: { email: data.email, password: data.password, password_confirmation: data.password_confirmation}
     }
     signup(userInfo)
     navigate("/recipeindex")
@@ -51,7 +51,7 @@ const SignUp = ( {signup} ) => {
         <FormGroup floating>
           <Input
             id="confirmPW"
-            name="pw_confirmation"
+            name="password_confirmation"
             placeholder="Confirm PW"
             type="password"
           />
@@ -60,7 +60,7 @@ const SignUp = ( {signup} ) => {
           </Label>
         </FormGroup>
         {' '}
-        <Input type="submit" value="Signup" />
+        <Input type="submit" value="Submit" />
       </form>
       </>
   )

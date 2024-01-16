@@ -10,7 +10,7 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
     ingredients: "",
     instructions: "",
     image: "",
-    user_id: currentUser.id
+    user_id: currentUser?.id
   });
 
   const handleChange = (e) => {
