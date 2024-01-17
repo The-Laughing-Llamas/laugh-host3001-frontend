@@ -20,8 +20,8 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
 
 
-  const url = "http://localhost:3000"
-  // const url = "https://laughhost3000.onrender.com"
+  // const url = "http://localhost:3000"
+  const url = "https://laughhost3000.onrender.com"
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
