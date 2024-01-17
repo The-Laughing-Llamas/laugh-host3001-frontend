@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+**Name of Application:** Laugh Host: 3001
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Overview:** Laugh Host 3001 is a fun and lighthearted application where the user can store and delete their best, silliest, and most revolting recipes to their account. This application was created as a capstone project for the LEARN Academy web development bootcamp. The goal was to upload an app to Render with CRUD functionality, user authentication with Devise, and 60% test coverage.
 
-## Available Scripts
+**Features:** The user can create an account, login, and logout. The user can also create, update, store, and delete recipes.
 
-In the project directory, you can run:
+**Running the Project**
+<br> In terminal:
+* Clone this project’s repo locally
+* cd into the project directory
+* yarn
+<br> In App.js:
+* Comment out line 24
+* Uncomment line 23
+<br> In terminal, after backend server is running:
+* yarn start
+* Select Y to run on a new port
 
-### `yarn start`
+**Dependencies**
+*       PostgreSQL
+*       Rspec
+*       Devise
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Frontend Dependencies**
+*       Bootstrap
+*       Reactstrap
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Contributors**
+<br>In addition to coding and styling, each member that worked on this project had an additional role to fill.
+* Enrique - As the Design Lead, Enrique was in control of the look, color scheme, and branding of the project. He created the wireframes, ensured intuitive navigation, and explored responsive and accessible design.
+* Greg - As the Project Manager, Greg was responsible for internal communication and oversaw the Trello board. He ensured Trello cards were up-to-date and reflective of the tasks we were going to accomplish. He was also responsible for our Slack and managing external resources.
+* Patsy - As our Tech Lead, Patsy had an invested role over our code base and version control. With her strong understanding of the technical aspects of our project, she helped resolve and prevent any issues with our coding, styling, and testing.
+* Sean - As our Product Manager, Sean was responsible for the big-picture and making sure the project met all requirements. He was also responsible for ensuring the README contained appropriate information.
+* Elyse - As our Instructor, Elyse was responsible for reviewing our code and making sure we stayed on track to completing our project.
