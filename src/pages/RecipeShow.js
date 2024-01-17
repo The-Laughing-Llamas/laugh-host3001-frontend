@@ -2,14 +2,15 @@ import React from "react";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
-const RecipeShow = ({ recipes }) => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/recipeindex");
-  };
-
+const RecipeShow = ({ recipes, deleteRecipe }) => {
   let { id } = useParams();
   const currentRecipe = recipes?.find((recipe) => recipe.id === +id);
+
+  const handleClick = () => {
+    deleteRecipe(currentRecipe.id)
+  };
+
+  
   return (
     <>
       <div className="showPage">
@@ -23,23 +24,23 @@ const RecipeShow = ({ recipes }) => {
               <div className="show-recipe-info">
                 <CardTitle>
                   <span style={{ fontSize: "20px" }}>
-                    {currentRecipe.title}
+                    {currentRecipe?.title}
                   </span>
                 </CardTitle>
                 <br />
                 <CardSubtitle className="sub-title">
                   <span style={{ fontWeight: "bold" }}>Ingredients: </span>{" "}
-                  {currentRecipe.ingredients}
+                  {currentRecipe?.ingredients}
                 </CardSubtitle>
                 <br />
                 <CardSubtitle>
                   <span style={{ fontWeight: "bold" }}>Instructions: </span>{" "}
-                  {currentRecipe.instructions}
+                  {currentRecipe?.instructions}
                 </CardSubtitle>
               </div>
               <NavLink
                 role="link"
-                to={`/recipeedit/${currentRecipe.id}`}
+                to={`/recipeedit/${currentRecipe?.id}`}
                 className="nav-link bg-secondary p-2 rounded my-2"
               >
                 Edit Recipe
@@ -48,6 +49,7 @@ const RecipeShow = ({ recipes }) => {
                 role="link"
                 to={`/recipeindex`}
                 className="nav-link bg-secondary p-2 rounded my-2"
+                onClick={handleClick}
               >
                 Delete Recipe
               </NavLink>
