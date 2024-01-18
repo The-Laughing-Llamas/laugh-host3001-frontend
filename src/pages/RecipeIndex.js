@@ -2,7 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-const RecipeIndex = ({ recipes }) => {
+const RecipeIndex = ({ recipes, currentUser }) => {
+  const myRecipes = recipes.filter(
+    (recipe) => currentUser?.id === recipe.user_id
+  );
   return (
     <>
       <div className="recipeIndex">
@@ -15,7 +18,7 @@ const RecipeIndex = ({ recipes }) => {
           </NavLink>
         </button>
         <div className="recipeCard">
-          {recipes.map((recipe, index) => {
+          {myRecipes.map((recipe, index) => {
             return (
               <Card
                 className="card"

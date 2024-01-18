@@ -95,6 +95,18 @@ header a:hover {
     width: 280px;
     text-align: center;
 }
+
+/* PigLatin Page */
+.pigLatinImage {
+    height: 547px;
+    display: block;
+    margin: auto;
+}
+
+.pig-latin-container {
+    text-align: center;
+}
+
 /* All Buttons */
 button {
     background-color: #F2913D;

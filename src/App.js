@@ -12,16 +12,15 @@ import RecipeShow from './pages/RecipeShow'
 import RecipeNew from './pages/RecipeNew'
 import RecipeEdit from './pages/RecipeEdit'
 import NotFound from './pages/NotFound'
-import mockRecipes from './mockRecipes'
-import mockUsers from './mockUsers';
+import PigLatin from './pages/PigLatin';
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
 
 
-  // const url = "http://localhost:3000"
-  const url = "https://laughhost3000.onrender.com"
+  const url = "http://localhost:3000"
+  // const url = "https://laughhost3000.onrender.com"
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
@@ -157,6 +156,7 @@ const App = () => {
           <Route exact path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
           <Route exact path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
+          <Route exact path="/piglatin" element={<PigLatin />} />
         </Routes>
       </div>
       <Footer />
