@@ -6,11 +6,14 @@ import React from "react";
 import mockRecipes from "../mockRecipes";
 
 describe("<RecipeIndex />", () => {
-  let recipes = mockRecipes
   beforeEach(() => {
+    const currentUser = {
+      email: "test1@test.com",
+      id: 1,
+    };
     render(
       <BrowserRouter>
-        <RecipeIndex recipes={recipes} />
+        <RecipeIndex recipes={mockRecipes} currentUser={currentUser} />
       </BrowserRouter>
     );
   })
