@@ -6,7 +6,7 @@ import { useState } from 'react'
 const DadJoke = () => {
     const [joke, setJoke] = useState(null)
     const apiKey = process.env.REACT_APP_SECRET_KEY
-  
+
     const requestJoke = async () => {
         const url = 'https://dad-jokes.p.rapidapi.com/random/joke';
         const options = {
@@ -19,16 +19,16 @@ const DadJoke = () => {
 
         try {
             const response = await fetch(url, options);
-            const result = await response.text();
-            console.log(result);
-            setJoke= result
-            console.log
+            const result = await response.json();
+            const setup = result.body[0].setup
+            console.log(result.body[0].setup);
+            setJoke(result.body)
+            console.log(joke.body)
         } catch (error) {
             console.error(error);
         }
-
     }
-console.log()
+   
     return (
         <div className="DadJoke" data-testid="DadJokeTI">
             <Col sm="6">
@@ -36,14 +36,9 @@ console.log()
                     <CardTitle tag="h5">
                         Dad Joke Generator
                     </CardTitle>
-                    <CardText>
-                    {joke?.map((jokeItem, index) => (
-              <div key={index}>
-                <p>Setup: {jokeItem.setup}</p>
-                <p>Punchline: {jokeItem.punchline}</p>
-              </div>
-            ))}
-                    </CardText>
+
+                    <CardText></CardText>
+
                     <Button onClick={requestJoke}>
                         New Joke
                     </Button>
