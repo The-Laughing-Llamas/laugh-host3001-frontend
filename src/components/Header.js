@@ -17,10 +17,12 @@ const Header = ({currentUser, signout}) => {
       <header role="navigation" aria-label="navigation">
         <img className='llamaLogo' src={llamaLogo} alt="llama logo"/>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/piglatin">PigLatin</NavLink>
+        
         {currentUser && (
           <>
           <NavLink to="/recipeindex">My Recipes</NavLink>
+          <NavLink to="/piglatin">PigLatin</NavLink>
+          <NavLink to="/dadjoke">Dad Joke</NavLink>
           <NavLink to="/" onClick={handleClick}>Log Out</NavLink>
           </>
         )}

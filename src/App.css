@@ -106,7 +106,13 @@ header a:hover {
 .pig-latin-container {
     text-align: center;
 }
+.user-input{
+   text-align: center;
+}
+.text-box{
+    align-items: right;
 
+}
 /* All Buttons */
 button {
     background-color: #F2913D;
@@ -126,4 +132,14 @@ button:hover{
 .show-card {
     margin: auto;
 }
+
+/* Dad Jokes Page */
+.DadJoke{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 300px;
+}
+
+
 

@@ -12,7 +12,8 @@ import RecipeShow from './pages/RecipeShow'
 import RecipeNew from './pages/RecipeNew'
 import RecipeEdit from './pages/RecipeEdit'
 import NotFound from './pages/NotFound'
-import PigLatin from './pages/PigLatin';
+import PigLatin from './pages/PigLatin'
+import DadJoke from './pages/DadJoke'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -21,6 +22,9 @@ const App = () => {
 
   const url = "http://localhost:3000"
   // const url = "https://laughhost3000.onrender.com"
+
+ 
+
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
@@ -157,6 +161,7 @@ const App = () => {
           <Route exact path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
           <Route exact path="/piglatin" element={<PigLatin />} />
+          <Route exact path="/dadjoke" element={<DadJoke />} />
         </Routes>
       </div>
       <Footer />
