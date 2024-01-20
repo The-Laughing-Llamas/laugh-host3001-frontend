@@ -13,7 +13,7 @@ import RecipeNew from './pages/RecipeNew'
 import RecipeEdit from './pages/RecipeEdit'
 import NotFound from './pages/NotFound'
 import PigLatin from './pages/PigLatin'
-import DadJoke from './pages/DadJoke'
+import Jokes from './pages/Jokes'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -148,8 +148,8 @@ const App = () => {
 
   return (
     <>
-      <Header currentUser = {currentUser} signout={signout}/>
       <div className="Body">
+      <Header currentUser = {currentUser} signout={signout}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/aboutus" element={<AboutUs />} />
@@ -161,10 +161,10 @@ const App = () => {
           <Route exact path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
           <Route exact path="*" element={<NotFound />} />
           <Route exact path="/piglatin" element={<PigLatin />} />
-          <Route exact path="/dadjoke" element={<DadJoke />} />
+          <Route exact path="/jokes" element={<Jokes />} />
         </Routes>
-      </div>
       <Footer />
+      </div>
     </>
   )
 }

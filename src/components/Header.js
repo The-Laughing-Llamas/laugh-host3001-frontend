@@ -22,7 +22,7 @@ const Header = ({currentUser, signout}) => {
           <>
           <NavLink to="/recipeindex">My Recipes</NavLink>
           <NavLink to="/piglatin">PigLatin</NavLink>
-          <NavLink to="/dadjoke">Dad Joke</NavLink>
+          <NavLink to="/jokes">Jokes</NavLink>
           <NavLink to="/" onClick={handleClick}>Log Out</NavLink>
           </>
         )}

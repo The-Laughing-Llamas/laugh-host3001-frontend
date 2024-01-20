@@ -23,12 +23,13 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
   };
   return (
     <>
+    <div className="recipeNew">
       <div>
         <h1>New Recipe</h1>
       </div>
       <Form>
-        <Row>
-          <Col md={4}>
+        <Row className="newRecipeRow">
+          <Col>
             <FormGroup>
               <Input
                 id="title"
@@ -38,7 +39,7 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
               />
             </FormGroup>
             <Row>
-              <Col md={12}>
+              <Col>
                 <FormGroup>
                   <Input
                     id="ingredients"
@@ -74,6 +75,7 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
         </Row>
         <Button onClick={handleSubmit}> Add Recipe </Button>
       </Form>
+      </div>
     </>
   );
 };

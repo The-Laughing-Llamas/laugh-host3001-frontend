@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef } from 'react'
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap'
+import { Form, FormGroup, Input, Label, Row, Col } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = ( {signup} ) => {
@@ -23,45 +23,61 @@ const SignUp = ( {signup} ) => {
 
   return (
     <>
-      <div><h1>Sign Up</h1></div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        <FormGroup floating>
-          <Input
-            id="exampleEmail"
-            name="email"
-            placeholder="Email"
-            type="email"
-          />
-          <Label for="exampleEmail">
-            Email
-          </Label>
-        </FormGroup>
+      <div className="signup"><h1>Sign Up</h1></div>
+        <form ref={formRef} onSubmit={handleSubmit}>
+          <Row md="4" className="signupRow">
+            <Col>
+              <FormGroup floating>
+                <Input
+                  id="exampleEmail"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                />
+                <Label for="exampleEmail">
+                  Email
+                </Label>
+              </FormGroup>
+            </Col>
+          </Row>
         {' '}
-        <FormGroup floating>
-          <Input
-            id="examplePassword"
-            name="password"
-            placeholder="Password"
-            type="password"
-          />
-          <Label for="examplePassword">
-            Password
-          </Label>
-        </FormGroup>
-        <FormGroup floating>
-          <Input
-            id="confirmPW"
-            name="password_confirmation"
-            placeholder="Confirm PW"
-            type="password"
-          />
-          <Label for="confirmPassword">
-            Confirm Password
-          </Label>
-        </FormGroup>
+          <Row md="4" className="signupRow">
+            <Col>
+              <FormGroup floating>
+                <Input
+                  id="examplePassword"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
+                <Label for="examplePassword">
+                  Password
+                </Label>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row md="4" className="signupRow">
+            <Col>
+              <FormGroup floating>
+                <Input
+                  id="confirmPW"
+                  name="password_confirmation"
+                  placeholder="Confirm PW"
+                  type="password"
+                />
+                <Label for="confirmPassword">
+                  Confirm Password
+                </Label>
+              </FormGroup>
+            </Col>
+          </Row>
         {' '}
-        <Input type="submit" value="Submit" />
-      </form>
+        <Row md="4" className="signupRow">
+          <Col>
+          <Input type="submit" value="Submit" />
+          </Col>
+        </Row>
+        </form>
       </>
   )
 }

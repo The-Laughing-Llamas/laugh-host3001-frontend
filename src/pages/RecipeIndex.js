@@ -12,14 +12,19 @@ const RecipeIndex = ({ recipes, currentUser }) => {
         <div id="recipeIndexH1">
           <h1>Recipes</h1>
         </div>
-        <button>
-          <NavLink to={`/recipenew/`} className="nav-link">
-            Add New Recipe
-          </NavLink>
-        </button>
+        <br />
+        <div className="addNewRecipeBtn">
+          <button>
+            <NavLink to={`/recipenew/`} className="nav-link">
+              Add New Recipe
+            </NavLink>
+          </button>
+        </div>
+        <br /><br />
         <div className="recipeCard">
           {myRecipes.map((recipe, index) => {
             return (
+              <>
               <Card
                 className="card"
                 key={index}
@@ -45,9 +50,11 @@ const RecipeIndex = ({ recipes, currentUser }) => {
                   </button>
                 </CardBody>
               </Card>
+             </>
             );
           })}
         </div>
+        <br />
       </div>
     </>
   );
