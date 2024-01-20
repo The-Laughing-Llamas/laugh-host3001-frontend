@@ -6,14 +6,14 @@ import { useState, useEffect } from 'react'
 const DadJoke = () => {
   const [joke, setJoke] = useState([])
 
-  const FetchJokes = async() => {
+  const fetchJokes = async() => {
     const res = await fetch("https://api.chucknorris.io/jokes/random");
     const data = await res.json();
     setJoke(data);
   }
 
   useEffect(() => {
-    FetchJokes();
+    fetchJokes();
   }, []);
 
   return (
@@ -26,7 +26,7 @@ const DadJoke = () => {
           <img src="https://m.media-amazon.com/images/I/61eS0QtpX3L._AC_UF894,1000_QL80_.jpg" alt="Chuck Norris Meets Coffee" width="350"/>
           <br />
           <p>{joke.value}</p>
-          <button onClick={FetchJokes}> Make Me Laugh </button>
+          <button onClick={fetchJokes}> Make Me Laugh </button>
         </Card>
     </div>
   );
