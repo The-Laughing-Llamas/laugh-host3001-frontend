@@ -41,7 +41,8 @@ header a:hover {
 /* Styling for Body */
 .Body {
     background-color: #9EA68D;
-    height:90vh;
+    height:100%;
+    width: 100%;
 }
 
 /* Styling for home */
@@ -63,37 +64,75 @@ header a:hover {
     
 }
 
-/* Styling for Recipe Page */
+/* Sign Up Page */
+
+.signup{
+    display: grid;
+    text-align: center;
+}
+
+.signupRow {
+    display:flex;
+    justify-content: center;
+}
+
+/* Styling for Recipe Index Page */
+.recipeIndex{
+    height: 100vh;
+}
+
+#recipeIndexH1 h1{
+    text-align: center;
+    font-size: 70px;
+    text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.4);  
+}
+
+.addNewRecipeBtn {
+    text-align: center;
+    /* padding-bottom: 30px; */
+}
+
 .recipeCard {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     text-align: center;
     height: 200px;
-    width: 150
+    width: 95%;
 }
 
-#recipeIndexH1 h1{
-    text-align: center;
-    margin-top: -80px;
-    padding-bottom: 60px;
-    font-size: 70px;
-    text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.4);
-    
-}
-
-.recipeIndex{
-    height: 90vh;
-    display: grid;
-    align-content: center;
-}
 .card{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
 }
+
 .recipeIndexImage{
     height: 230px;
     width: 280px;
     text-align: center;
+}
+
+/* Styling for Recipe Show Page */
+
+.card-title {
+    text-align: center;
+} 
+
+.show-card {
+    margin: auto;
+}
+
+/* Recipe New */
+
+.recipeNew {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+}
+
+.newRecipeRow {
+    display:flex;
+    justify-content: center;
+    width: 400px;
 }
 
 /* PigLatin Page */
@@ -107,23 +146,34 @@ header a:hover {
     text-align: center;
 }
 
+.user-input{
+   text-align: center;
+}
+
+.text-box{
+    align-items: right;
+}
+
+/* Jokes Page */
+
+.jokes {
+    display: grid;
+    justify-content: center;
+}
+
+.jokeCard{
+    display: flex;
+    align-items: center;
+    color: #D9D9D9;
+}
+
 /* All Buttons */
-button {
+button, .sbtn {
     background-color: #F2913D;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
+    width: 200px;
 }
 
 button:hover{
     transform: scale(1.2) 
 }
-
-/* Styling for Recipe Show Page */
-
-.card-title {
-    text-align: center;
-} 
-
-.show-card {
-    margin: auto;
-}
-

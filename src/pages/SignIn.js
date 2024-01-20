@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef } from 'react'
-import { FormGroup, Input, Label } from 'reactstrap'
+import { FormGroup, Input, Label, Row, Col } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 
 const SignIn = ( {signin} ) => {
@@ -23,33 +23,45 @@ const SignIn = ( {signin} ) => {
 
   return (
     <>
-    <div><h1>Login</h1></div>
+    <div className="signup"><h1>Login</h1></div>
     <form ref={formRef} onSubmit={handleSubmit}>
-      <FormGroup floating>
-        <Input
-          id="exampleEmail"
-          name="email"
-          placeholder="Email"
-          type="email"
-        />
-        <Label for="exampleEmail">
-          Email
-        </Label>
-      </FormGroup>
+      <Row md="4" className="signupRow">
+        <Col>
+          <FormGroup floating>
+            <Input
+              id="exampleEmail"
+              name="email"
+              placeholder="Email"
+              type="email"
+            />
+            <Label for="exampleEmail">
+              Email
+            </Label>
+          </FormGroup>
+        </Col>
+      </Row>
       {' '}
-      <FormGroup floating>
-        <Input
-          id="examplePassword"
-          name="password"
-          placeholder="Password"
-          type="password"
-        />
-        <Label for="examplePassword">
-          Password
-        </Label>
-      </FormGroup>
+      <Row md="4" className="signupRow">
+        <Col>
+          <FormGroup floating>
+            <Input
+              id="examplePassword"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+            <Label for="examplePassword">
+              Password
+            </Label>
+          </FormGroup>
+        </Col>
+      </Row>
       {' '}
-      <Input type="submit" value="Login" />
+      <Row md="4" className="signupRow">
+        <Col>
+          <Input type="submit" value="Login" />
+        </Col>
+      </Row>
     </form>
   </>
   )

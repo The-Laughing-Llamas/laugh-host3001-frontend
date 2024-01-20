@@ -41,14 +41,21 @@ const RecipeShow = ({ recipes, deleteRecipe }) => {
               <NavLink
                 role="link"
                 to={`/recipeedit/${currentRecipe?.id}`}
-                className="nav-link bg-secondary p-2 rounded my-2"
+                className="nav-link p-2 rounded my-2"
+                style={{
+                  color: "black",
+                  backgroundColor: "#F2913D"
+                }}
               >
                 Edit Recipe
               </NavLink>
               <NavLink
                 role="link"
                 to={`/recipeindex`}
-                className="nav-link bg-secondary p-2 rounded my-2"
+                className="nav-link bg-danger p-2 rounded my-2"
+                style={{
+                  color:"#F2F2F2"
+                }}
                 onClick={handleClick}
               >
                 Delete Recipe

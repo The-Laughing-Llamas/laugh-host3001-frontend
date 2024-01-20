@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PigvsLlamma from "../assets/pigvsllama.jpeg"
-import { Input } from "reactstrap"
+import { Input, Container } from "reactstrap"
 
 const PigLatin = () => {
   const [userInput, setUserInput] = useState(
@@ -78,14 +78,16 @@ const PigLatin = () => {
         <br />
         <div className="input-section">
           <h4>Enter phrase to be translated:</h4>
+          <Container className="bg-light border">
             <Input
                 type="textarea"
                 className="user-input"
                 onChange={handleChange}
                 value={userInput}
                 data-testid="PigLatinInput"
-
+                
             />
+            </Container>
           <h3>{inputTranslated}</h3>
           <br />
           <button onClick={setUpPreventDefault}>Submit</button>

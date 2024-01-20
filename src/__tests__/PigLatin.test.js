@@ -13,7 +13,6 @@ describe("<PigLatin />", () => {
     });
     it("renders heading", () => {
       expect(screen.getByRole('heading', { name: /Pig Latin Translator/i })).toBeInTheDocument();
-      screen.logTestingPlaygroundURL()
     });
     it("displays an image", () => {
       expect(screen.getByRole('img', {
