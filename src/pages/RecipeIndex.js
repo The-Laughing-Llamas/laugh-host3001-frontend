@@ -21,6 +21,7 @@ const RecipeIndex = ({ recipes, currentUser }) => {
           </button>
         </div>
         <br /><br />
+        <div className="recipes">
         <div className="recipeCard">
           {myRecipes.map((recipe, index) => {
             return (
@@ -53,6 +54,7 @@ const RecipeIndex = ({ recipes, currentUser }) => {
              </>
             );
           })}
+        </div>
         </div>
         <br />
       </div>

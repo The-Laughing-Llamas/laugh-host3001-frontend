@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Col, Button, Row } from "reactstrap";
+import { Form, FormGroup, Label, Input, Col, Button, Row, Container } from "reactstrap";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -24,10 +24,9 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
   return (
     <>
     <div className="recipeNew">
-      <div>
         <h1>New Recipe</h1>
-      </div>
-      <Form>
+        <Container  fluid="xl">  
+      <Form style={{marginTop: '-150px'}}>
         <Row className="newRecipeRow">
           <Col>
             <FormGroup>
@@ -75,6 +74,7 @@ const RecipeNew = ({ createRecipe, currentUser }) => {
         </Row>
         <Button onClick={handleSubmit}> Add Recipe </Button>
       </Form>
+      </Container>
       </div>
     </>
   );

@@ -1,13 +1,10 @@
 import React from 'react'
 import { useRef } from 'react'
-import { FormGroup, Input, Label, Row, Col } from 'reactstrap'
-import { useNavigate } from 'react-router-dom'
+import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap'
 
 const SignIn = ( {signin} ) => {
 
   const formRef = useRef()
-
-  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -17,12 +14,13 @@ const SignIn = ( {signin} ) => {
       user: { email: data.email, password: data.password }
     }
     signin(userInfo)
-    navigate("/recipeindex")
     e.target.reset()
   }
 
   return (
     <>
+    <div className="signupPage">
+    <Container style={{marginTop: '50px'}} fluid="xl">
     <div className="signup"><h1>Login</h1></div>
     <form ref={formRef} onSubmit={handleSubmit}>
       <Row md="4" className="signupRow">
@@ -63,6 +61,8 @@ const SignIn = ( {signin} ) => {
         </Col>
       </Row>
     </form>
+    </Container>
+    </div>
   </>
   )
 }

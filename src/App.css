@@ -65,6 +65,9 @@ header a:hover {
 }
 
 /* Sign Up Page */
+.signupPage {
+    height:90vh;
+}
 
 .signup{
     display: grid;
@@ -77,9 +80,6 @@ header a:hover {
 }
 
 /* Styling for Recipe Index Page */
-.recipeIndex{
-    height: 100vh;
-}
 
 #recipeIndexH1 h1{
     text-align: center;
@@ -97,8 +97,8 @@ header a:hover {
     justify-content: space-around;
     flex-wrap: wrap;
     text-align: center;
-    height: 200px;
     width: 95%;
+    overflow: hidden;
 }
 
 .card{
@@ -124,9 +124,14 @@ header a:hover {
 /* Recipe New */
 
 .recipeNew {
+    height:90vh;
     display: grid;
     text-align: center;
     justify-content: center;
+}
+.recipeNew h1 {
+    height:50px;
+    padding-top:25px;
 }
 
 .newRecipeRow {
@@ -168,7 +173,7 @@ header a:hover {
 }
 
 /* All Buttons */
-button, .sbtn {
+button {
     background-color: #F2913D;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.9);
     width: 200px;
