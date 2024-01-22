@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
 import {  Routes, Route } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -19,11 +20,10 @@ const App = () => {
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
 
+  const navigate = useNavigate()
 
   // const url = "http://localhost:3000"
   const url = "https://laughhost3000.onrender.com"
-
- 
 
 
   const signin = (userInfo) => {
@@ -45,6 +45,9 @@ const App = () => {
     .then((payload) => {
       localStorage.setItem("user", JSON.stringify(payload))
       setCurrentUser(payload)
+    })
+    .then(() => {
+      navigate('/recipeindex') 
     })
     .catch((error) => console.log("login errors: ", error))
   }
@@ -68,6 +71,9 @@ const App = () => {
       .then((payload) => {
         localStorage.setItem("user", JSON.stringify(payload))
         setCurrentUser(payload)
+      })
+      .then(() => {
+        navigate('/recipeindex') 
       })
       .catch((error) => console.log("login errors: ", error))
   }
@@ -152,16 +158,16 @@ const App = () => {
       <Header currentUser = {currentUser} signout={signout}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/aboutus" element={<AboutUs />} />
-          <Route exact path="/login" element={<SignIn signin={signin}/>} />
-          <Route exact path="/signup" element={<SignUp signup={signup}/>} />
-          {currentUser && (<Route exact path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} />)}
-          <Route exact path="/recipeshow/:id" element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe} />} />
-          <Route exact path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
-          <Route exact path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
-          <Route exact path="*" element={<NotFound />} />
-          <Route exact path="/piglatin" element={<PigLatin />} />
-          <Route exact path="/jokes" element={<Jokes />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/login" element={<SignIn signin={signin}/>} />
+          <Route path="/signup" element={<SignUp signup={signup}/>} />
+         {currentUser && <Route path="/recipeindex" element={<RecipeIndex recipes={recipes} currentUser={currentUser}/>} /> }
+          <Route path="/recipeshow/:id" element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe} />} />
+          <Route path="/recipenew" element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser} />} />
+          <Route path="/recipeedit/:id" element={<RecipeEdit updateRecipe={updateRecipe} recipes={recipes} />} />
+          <Route path="/piglatin" element={<PigLatin />} />
+          <Route path="/jokes" element={<Jokes />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       <Footer />
       </div>
